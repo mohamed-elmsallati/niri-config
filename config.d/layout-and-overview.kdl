@@ -1,0 +1,57 @@
+layout {
+    gaps 12
+
+	background-color "transparent"
+
+    center-focused-column "never"
+
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+
+    default-column-width {
+        proportion 1.0
+    }
+
+    shadow {
+        // on
+
+        color "#16161610"
+        draw-behind-window true
+    }
+
+    struts {
+        // left 0
+        // right 64
+        // top 64
+        bottom 7
+    }
+
+    default-column-display "normal"
+    // empty-workspace-above-first
+    }
+
+overview {
+		// zoom 0.99
+		backdrop-color "#ff0025"
+
+
+    workspace-shadow {
+        off
+        softness 40
+        spread 10
+        offset x=5 y=10
+        color "#000000a0"
+    }
+}
+
+switch-events {
+    lid-close { spawn "notify-send" "The laptop lid is closed!"; }
+    lid-open { spawn "notify-send" "The laptop lid is open!"; }
+    // tablet-mode-on { spawn "bash" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true"; }
+    // tablet-mode-off { spawn "bash" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false"; }
+}

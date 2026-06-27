@@ -1,0 +1,39 @@
+
+
+
+
+layer-rule {
+  match namespace="waybar"
+
+    shadow {
+        on
+        // off
+        softness 0
+        spread 0
+        offset x=7 y=6
+        draw-behind-window true
+        color "#000000aa"
+        // inactive-color "#00000064"
+    }
+}
+
+
+layer-rule {
+  match namespace="^noctalia-bar-default$"
+
+    shadow {
+        // on
+        softness 0
+        spread 0
+        offset x=7 y=6
+        draw-behind-window true
+        color "#000000bb"
+        // inactive-color "#00000064"
+    }
+}
+
+// Block a layer surface from screen capture:
+// layer-rule {
+//     match namespace="some-private-overlay"
+//     block-out-from "screencast"
+// }

@@ -1,0 +1,23 @@
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+include "config.d/input-and-cursor.kdl"
+include "config.d/layout-and-overview.kdl"
+include "config.d/window-rules.kdl"
+include "config.d/environment.kdl"
+include "config.d/startup.kdl"
+include "config.d/animations.kdl"
+include "config.d/binds.kdl"
+include "config.d/layer-rules.kdl"
+include "config.d/user-extra.kdl"
+include "noctalia.kdl"
+
+output "eDP-1" {
+    scale 1
+}
+

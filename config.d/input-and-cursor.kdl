@@ -1,0 +1,53 @@
+input {
+    keyboard {
+        xkb {
+            layout "us,ara"
+            model "pc105"
+            options "grp:alt_shift_toggle,compose:ralt"
+        }
+        track-layout "window"
+
+        repeat-delay 250
+        repeat-rate 50
+    }
+
+    touchpad {
+        tap
+        tap-button-map "left-right-middle"
+
+        natural-scroll
+        accel-profile "flat"
+    }
+
+    mouse {
+        accel-profile "flat"
+        scroll-method "two-finger"
+    }
+
+    mod-key "Super"
+    mod-key-nested "Alt"
+
+    // warp-mouse-to-focus
+
+    // focus-follows-mouse max-scroll-amount="0%"
+    trackpoint {
+    accel-profile "flat"
+    accel-speed 1.00
+        middle-emulation
+        natural-scroll
+    }
+
+    // disable-power-key-handling
+    workspace-auto-back-and-forth
+    }
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+cursor {
+    xcursor-theme "Future"
+    xcursor-size 32
+}

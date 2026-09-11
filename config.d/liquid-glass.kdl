@@ -1,0 +1,88 @@
+
+window-rule {
+    opacity 0.75          // iOS glass reads as frosted, not see-through — 0.5 is too ghostly
+    geometry-corner-radius 24   // Apple leans into big, soft, continuous corners
+
+    background-effect {
+        blur true
+        xray true
+        liquid-glass {
+            refraction-strength 0.9   // way down — iOS barely bends content, no funhouse warp
+            power-factor 2            // tighter falloff so distortion stays at the edge, not the center
+            refraction-power 0.9
+            glow-weight 0.00003       // faint inner glow, not a big highlight
+            edge-lighting 1.2         // this is your "light catching the rim" effect — push it up
+            brightness 1.0
+            saturation 1.0            // keep colors true rather than boosted
+            vibrancy 1.2              // subtle pop on muted colors, not full saturation blast
+            adaptive-dim 0.9         // the actual "iOS" trait: dims over bright wallpaper areas
+            adaptive-boost 0.4       // and brightens over dark ones, for legibility
+            physical-refraction 1.0   // try toggling this to 1.0 too — worth an A/B test
+            refraction-dilute 2.0     // less dilution needed since strength is already low
+            lens-distortion 0.15      // small — keeps the bend confined to rounded corners
+            fringing 0.05             // near-zero, iOS doesn't have visible chromatic aberration
+        }
+    }
+
+}
+
+window-rule {
+}
+
+layer-rule {
+  match namespace="^noctalia-dddesktop-widget$"
+
+    opacity 0.8
+
+    background-effect {
+        blur true
+        xray false
+        liquid-glass {
+            refraction-strength 3.0
+            power-factor 10
+            refraction-power 10.0
+            glow-weight 0.0001
+            edge-lighting 0.0
+            brightness 1.0
+
+            saturation 0.9
+            vibrancy 0.5
+            adaptive-dim 0.25
+            adaptive-boost 0.25
+            physical-refraction 0.0
+            refraction-dilute 6.0
+            lens-distortion 0.6
+            fringing 1.0
+
+        }
+    }
+}
+
+layer-rule {
+    match namespace="^noctalia-(notification|panel|attached-panel|osd)$"
+    opacity 0.8
+
+    background-effect {
+        blur true
+        xray false
+        liquid-glass {
+            refraction-strength 3.0
+            power-factor 10
+            refraction-power 10.0
+            glow-weight 0.0001
+            edge-lighting 0.0
+            brightness 1.0
+
+            saturation 0.9
+            vibrancy 0.5
+            adaptive-dim 0.25
+            adaptive-boost 0.25
+            physical-refraction 0.0
+            refraction-dilute 6.0
+            lens-distortion 0.6
+            fringing 1.0
+
+        }
+    }
+
+}

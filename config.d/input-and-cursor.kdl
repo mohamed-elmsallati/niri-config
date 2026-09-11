@@ -48,6 +48,6 @@ gestures {
 }
 
 cursor {
-    xcursor-theme "Future"
+    xcursor-theme "Qogirr"
     xcursor-size 32
 }

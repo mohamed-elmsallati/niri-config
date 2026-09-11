@@ -1,3 +1,24 @@
+layer-rule {
+    match namespace="^awww-daemon$"
+}
+
+layer-rule {
+    match namespace="^noctalia-backdrop$"
+    place-within-backdrop true
+}
+
+layer-rule {
+   match namespace="^noctalia-wallpaper$"
+   place-within-backdrop true
+}
+
+layer-rule {
+  match namespace="^noctalia-dock$"
+  background-effect {
+    xray false
+    blur false
+  }
+}
 
 
 
@@ -32,6 +53,53 @@ layer-rule {
     }
 }
 
+// layer-rule {
+//   match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+//   background-effect {
+//     xray false
+//     blur true
+//   }
+// }
+
+layer-rule {
+    match namespace="noctalia-window-switcher"
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+layer-rule {
+  match namespace="^noctalia-desktop-widget-audio_visualizer"
+  background-effect {
+    blur false
+  }
+}
+
+
+layer-rule {
+  match namespace="^noctalia-desktop-widget-label"
+  background-effect {
+    blur false
+    xray true
+  }
+}
+
+layer-rule {
+  match namespace="^noctalia-desktop-widget-clock"
+  background-effect {
+    blur false
+    // xray true
+  }
+}
+
+layer-rule {
+  match namespace="^noctalia-desktop-widget-sticker"
+  background-effect {
+    blur false
+    // xray true
+  }
+}
 // Block a layer surface from screen capture:
 // layer-rule {
 //     match namespace="some-private-overlay"

@@ -2,294 +2,172 @@ window-rule {
     background-effect {
         xray false
         blur true
-        noise 0.5
-        saturation 3
 
     }
 
-    // popups {
-    //     opacity 0.99
-    //     geometry-corner-radius 15
-    //
-    //     background-effect {
-    //         xray false
-    //         blur true
-    //         noise 0.07
-    //         saturation 1
-    //     }
-    // }
+    popups {
+    opacity 1.0
+    }
 
     border {
-        // on
-
+        on
+        width 1
     }
+
+    shadow {
+        off
+        softness 0
+        spread 0
+        offset x=0 y=10
+        draw-behind-window false
+        color "#33b1ff"
+        inactive-color "#555555"
+    }
+
     focus-ring{
         off
     }
-    opacity 0.9
 
+    opacity 0.8
+    draw-border-with-background false
     geometry-corner-radius 0
     clip-to-geometry true
 }
 
 
-/-window-rule {
-  match app-id="dev.noctalia.Noctalia.Settings"
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  opacity 1.0
   open-floating true
-
-    border {
-        off
-        active-color   "#000000"
-        inactive-color "#161616"
-        urgent-color   "#ee5396"
-    }
-
-  default-column-width { fixed 900; }
-  default-window-height { fixed 500; }
-  default-floating-position x=500 y=-10 relative-to="top-left"
-
-  shadow {
+  border {
       off
   }
+  default-floating-position x=400 y=-3 relative-to="top-right"
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
+
+
+
+window-rule {
+    match app-id="foot"
+    match app-id="kitty"
+    match app-id="Alacritty"
+
+    default-column-width  { proportion 0.5;}
+}
+
+
+window-rule {
+    match app-id="firefox"
+    match app-id="zen"
+    // match app-id="vivaldi-stable"
+    match app-id="chromium"
 }
 
 window-rule {
-  // Match the custom class you just set
-  match app-id="Scratchpad"
-
-    border {
-        // off
-        on
-        active-color   "#000000"
-        inactive-color "#161616"
-        urgent-color   "#ee5396"
-    }
-
-  // Example rules: make it float, center it, and set a specific size
-  open-floating true
-  default-column-width { proportion 0.5; }
-  default-window-height { proportion 0.5; }
-  default-floating-position x=500 y=-10 relative-to="top-left"
-
-  shadow {
-      off
-  }
-
-}
-
-/-window-rule {
-    match is-floating=true
-    exclude app-id="dev.noctalia.Noctalia.Settings"
-    exclude app-id="Scratchpad"
-    default-floating-position x=500 y=500 relative-to="top-left"
-
-    border {
-        on
-        active-color   "#000000"
-        inactive-color "#161616"
-        urgent-color   "#ee5396"
-    }
-
-    focus-ring {
-        off
-    }
-
-    shadow {
-        on
-        // off
-        softness 0
-        spread 0
-        offset x=10 y=10
-        draw-behind-window true
-        color "#000000cc"
-        // inactive-color "#00000064"
-    }
-
-
-
-    min-width 480
-    max-width 720
-    min-height 300
-    max-height 600
-
-}
-
-// shell / terminal — blue accent
-// window-rule {
-//     match app-id="foot"
-//     // match app-id="kitty"
-//     match app-id="Alacritty"
-//
-//     border {
-//         // on
-//         width 2
-//         active-color "#dde1e6"
-//         inactive-color "#393939"
-//     }
-// }
-
-// window-rule {
-//     match app-id="org.pwmt.zathura"
-//     match app-id="org.telegram.desktop"
-//     match app-id="elecwhat"
-//
-//     border {
-//         // on
-//         width 2
-//         active-color "#be95ff"
-//         inactive-color "#393939"
-//     }
-// }
-
-// editor — pink accent
-// window-rule {
-//     match app-id="neovide"
-//     // match title=r#"nvim"#
-//     match app-id="code"
-//     match app-id="zed"
-//     // match app-title=r#"v"#
-//
-//     border {
-//         // on
-//         width 2
-//         active-color "#ee5396"
-//         inactive-color "#393939"
-//     }
-// }
-
-// browser / dashboard — green accent
-// window-rule {
-//     match app-id="firefox"
-//     match app-id="zen"
-//     // match app-id="vivaldi-stable"
-//     match app-id="chromium"
-//
-//     border {
-//         // on
-//         width 2
-//         active-color "#42be65"
-//         inactive-color "#393939"
-//     }
-// }
-// Dim unfocused windows slightly for visual hierarchy.
-// ── Per-app fixes ───────────────────────────────────────────────────────────
-
-// WezTerm: work around initial configure bug (needs an empty default width).
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+    match app-id=r#"Stacked Sprite Viewer$"#
+    open-floating true
 }
 
 window-rule {
-    match app-id=r#"zen$"#
+    match app-id=r#"Godot$"#
     opacity 1.0
-    background-effect {
-        xray true
-        blur true
-        noise 0.01
-        saturation 3
-    }
-        popups {
-        opacity 1.0
-        geometry-corner-radius 15
-
-        background-effect {
-            xray false
-            blur false
-            noise 0.01
-            saturation 1
-        }
-    }
-
 }
 
-window-rule {
+
+
+/-window-rule {
     match app-id=r#"zen$"# title="^Parent process Browser Toolbox$"
     open-floating true
-
 
     min-width 1080
     max-width 1080
     min-height 500
     max-height 500
-
 }
 
 
 
 
-// Firefox / Zen / vivaldi: picture-in-picture window opens floating.
 window-rule {
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-window-rule {
-    match app-id=r#"zen$"# title="^Picture-in-Picture$"
-    default-floating-position x=10 y=10 relative-to="bottom-right"
-
-    open-floating true
-
-    baba-is-float true
-
-    min-width 560
-    max-width 560
-    min-height 315
-    max-height 315
-
-}
-
-
-window-rule {
-    // vivaldi: picture-in-picture window opens floating.
     match title="^Picture in picture$"
-    opacity 1.0
     default-floating-position x=10 y=10 relative-to="bottom-right"
+
     open-floating true
     baba-is-float true
-
-    border {
-        off
-    }
 
     min-width 560
     max-width 560
     min-height 315
     max-height 315
+
 }
 
 window-rule {
-    match app-id=r#"vivaldi-stable$"#
-
-    clip-to-geometry true
-    // tiled-state true
-    open-maximized-to-edges false
-    draw-border-with-background false
-
+    match app-id=r#"Recordly$"#
+    opacity 1.0
+    border {
+        on
+    }
+    background-effect {
+        xray false
+        blur false
+        noise 0.0
+        saturation 1.0
+    }
+    baba-is-float true
+    default-floating-position x=10 y=10 relative-to="bottom-right"
 }
+
+
+
 window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
-    default-floating-position x=10 y=10 relative-to="bottom-right"
+    default-floating-position x=10 y=10 relative-to="top-right"
 }
 
-// ── Privacy: block password managers from screen capture ────────────────────
-// Uncomment the block below to hide these apps during screencasts.
-// /-window-rule {
-//     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-//     match app-id=r#"^org\.gnome\.World\.Secrets$"#
-//     block-out-from "screen-capture"
-// }
+window-rule {
+    match app-id="Keyboard"
+    opacity  0.75
+    open-floating true
+    geometry-corner-radius 15
+    default-column-width { fixed 876; }
+    default-window-height { fixed 522; }
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+
+    background-effect {
+        xray false
+        blur true
+        noise 0.1
+        saturation 1
+    }
+
+
+}
+
+
 
 // ── Floating apps ───────────────────────────────────────────────────────────
 // Apps that work better as floating windows.
-// window-rule {
-//     match app-id="pavucontrol"
-//     open-floating true
-// }
-// window-rule {
-//     match app-id="nm-connection-editor"
-//     open-floating true
-// }
-// window-rule {
-//     match app-id=r#"^org\.gnome\.Calculator$"#
-//     open-floating true
-// }
+window-rule {
+    match app-id="pavucontrol"
+    open-floating true
+}
+
+
+window-rule {
+    match app-id="nm-connection-editor"
+    open-floating true
+}
+
+blur {
+    // off
+    passes 2
+    offset 6
+    saturation 2.5
+    noise 0.1
+}

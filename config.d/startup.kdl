@@ -11,8 +11,7 @@ spawn-at-startup "bash" "-c" "wl-paste --type image --watch cliphist store &"
 spawn-sh-at-startup "wl-clip-persist  --clipboard regular"
 
 
-spawn-at-startup "bash" "-c" "gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'"
-spawn-at-startup "bash" "-c" "gsettings set org.gnome.desktop.interface icon-theme 'oomox-aesthetic-dark'"
-// spawn-at-startup "bash" "-c" "gsettings set org.gnome.desktop.interface cursor-theme 'Future-Dark'"
-// spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
+spawn-at-startup "bash" "-c" "gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'"
+spawn-at-startup "bash" "-c" "gsettings set org.gnome.desktop.interface icon-theme 'Colloid-Dark'"
+// spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"

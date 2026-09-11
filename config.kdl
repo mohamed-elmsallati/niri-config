@@ -16,6 +16,8 @@ include "config.d/binds.kdl"
 include "config.d/layer-rules.kdl"
 include "config.d/user-extra.kdl"
 include "noctalia.kdl"
+//include optional=true "config.d/liquid-glass.kdl"
+
 
 output "eDP-1" {
     scale 1

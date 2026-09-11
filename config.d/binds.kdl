@@ -1,6 +1,6 @@
 binds {
 
-    Mod+F7 hotkey-overlay-title="Switch between V4 and V5" { spawn-sh "pkill noctalia && qs -c noctalia-shell || pkill qs && noctalia";}
+    // Mod+F7 hotkey-overlay-title="Switch between V4 and V5" { spawn-sh "pkill noctalia && qs -c noctalia-shell || pkill qs && noctalia";}
 
     Mod+O hotkey-overlay-title="Overview" repeat=false { toggle-overview; }
     Mod+Space hotkey-overlay-title="Launcher" { spawn-sh "noctalia msg panel-toggle launcher 2>/dev/null || qs -c noctalia-shell ipc call launcher toggle"; }
@@ -8,24 +8,36 @@ binds {
     Mod+Shift+E hotkey-overlay-title="Session Menu" { spawn-sh "noctalia msg panel-toggle session 2>/dev/null || qs -c noctalia-shell ipc call sessionMenu toggle"; }
 
     Mod+S hotkey-overlay-title="Control Center" { spawn-sh "noctalia msg panel-toggle control-center 2>/dev/null || qs -c noctalia-shell ipc call controlCenter toggle"; }
-    Mod+Shift+Space { spawn-sh "noctalia msg panel-toggle control-center 2>/dev/null || qs -c noctalia-shell ipc call controlCenter toggle"; }
 
     Mod+Tab { spawn-sh "noctalia msg panel-toggle launcher /win";}
+    Mod+Z { spawn-sh "noctalia msg panel-toggle launcher /zed";}
+    Mod+G { spawn-sh "noctalia msg panel-toggle launcher /gd";}
+    Mod+M { spawn-sh "noctalia msg panel-toggle aabidk20/yt-music:panel";}
     Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn-sh "noctalia msg session lock 2>/dev/null || qs -c noctalia-shell ipc call lockScreen lock"; }
 
     Mod+V hotkey-overlay-title="Clipboard" { spawn-sh "noctalia msg panel-toggle clipboard 2>/dev/null || qs -c noctalia-shell ipc call launcher clipboard"; }
     Mod+N hotkey-overlay-title="Notifications" { spawn-sh "noctalia msg panel-toggle control-center notifications 2>/dev/null || qs -c noctalia-shell ipc call notifications toggleHistory"; }
-    Mod+M hotkey-overlay-title="Media" { spawn-sh "noctalia msg panel-toggle control-center media 2>/dev/null || qs -c noctalia-shell ipc call media toggle"; }
+    // Mod+M hotkey-overlay-title="Media" { spawn-sh "noctalia msg panel-toggle control-center media 2>/dev/null || qs -c noctalia-shell ipc call media toggle"; }
     Mod+Slash hotkey-overlay-title="Emoji" { spawn-sh "noctalia msg panel-toggle launcher /emo  2>/dev/null || qs -c noctalia-shell ipc call launcher emoji";}
     Mod+Shift+U hotkey-overlay-title="Random Wallpaper" { spawn-sh "noctalia msg wallpaper-random 2>/dev/null || qs -c noctalia-shell ipc call wallpaper random"; }
+    Mod+Shift+C hotkey-overlay-title="Color picker" { spawn-sh "noctalia msg panel-toggle oldirtty/color_picker:panel 2>/dev/null || qs -c noctalia-shell ipc call launcher clipboard"; }
+    Mod+Alt+C hotkey-overlay-title="Calculator" { spawn-sh "noctalia msg panel-toggle yuuto/calculator:panel 2>/dev/null || qs -c noctalia-shell ipc call launcher clipboard"; }
     Mod+Shift+W hotkey-overlay-title="Change Wallpaper" { spawn-sh "noctalia msg panel-toggle wallpaper 2>/dev/null || qs -c noctalia-shell ipc call wallpaper toggle"; }
+
+    Mod+grave hotkey-overlay-title="Todo" { spawn-sh "noctalia msg panel-toggle nightwatch75/todo:panel "; }
+    // Mod+Print hotkey-overlay-title="Record The Screen" { spawn-sh "noctalia msg panel-toggle noctalia/screenrecoreder:panel "; }
 
     // ---------------------------------------------------------
     // v4-Exclusive Binds (No v5 equivalents provided)
     // ---------------------------------------------------------
-    Mod+grave hotkey-overlay-title="Scratchpad" { spawn-sh "qs -c noctalia-shell ipc call plugin:notes-scratchpad togglePanel"; }
-    Mod+F2 { spawn-sh "qs -c noctalia-shell ipc call plugin:screen-toolkit toggle"; }
-    Mod+Shift+Slash hotkey-overlay-title="Cheatsheet" { spawn-sh "/home/mohammed/.config/rofi/scripts/binds.sh || qs -c noctalia-shell ipc call plugin:keybind-cheatsheet toggle";}
+    Mod+F1 { spawn-sh "noctalia msg desktop-widgets-edit"; }
+    Mod+F2 { spawn-sh "noctalia msg plugin alexander/screen-toolkit:service all toggle"; }
+    Mod+F3 { spawn-sh "noctalia msg plugin noctalia/screenrecorder start"; }
+
+    Mod+P { spawn-sh "noctalia msg panel-toggle icefish/phone-connect:details";}
+    // Mod+F5 { spawn-sh "kitty --class Keyboard -e ~/go/bin/ditto"; }
+    Mod+Shift+Slash hotkey-overlay-title="Cheatsheet" { spawn-sh "noctalia msg panel-toggle blackbartblues/keymap:panel";}
+
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+O { power-off-monitors; }
@@ -36,7 +48,7 @@ binds {
     Mod+A { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+Q repeat=true { close-window; }
-    Mod+G { spawn "niri-float-sticky" "-ipc" "toggle_sticky"; }
+    Mod+Shift+G { spawn "niri-float-sticky" "-ipc" "toggle_sticky"; }
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
@@ -52,35 +64,33 @@ binds {
     Mod+BracketRight { consume-or-expel-window-right; }
 
 
-    Mod+T { spawn-sh "kitty"; }
     Mod+Return { spawn-sh "kitty"; }
-    Super+E { spawn "thunar"; }
+    Super+E { spawn "nautilus"; }
     Super+B { spawn "zen-browser"; }
-    Super+Y { spawn-sh "vivaldi-stable https://www.youtube.com"; }
 
-    Mod+Left hotkey-overlay-title="" { focus-column-left; }
-    Mod+Right { focus-column-right; }
-    Mod+Up    { focus-window-up; }
-    Mod+Down  { focus-window-down; }
+    // Mod+Left hotkey-overlay-title="" { focus-column-left; }
+    // Mod+Right { focus-column-right; }
+    // Mod+Up    { focus-window-up; }
+    // Mod+Down  { focus-window-down; }
     Mod+H     { focus-column-left; }
     Mod+J     { focus-window-or-workspace-down; }
     Mod+K     { focus-window-or-workspace-up; }
     Mod+L     { focus-column-right; }
 
-    Mod+Home { focus-column-first; }
-    Mod+End  { focus-column-last; }
+    // Mod+Home { focus-column-first; }
+    // Mod+End  { focus-column-last; }
 
-    Mod+Shift+Left  { move-column-left; }
-    Mod+Shift+Right { move-column-right; }
-    Mod+Shift+Up    { move-window-up; }
-    Mod+Shift+Down  { move-window-down; }
+    // Mod+Shift+Left  { move-column-left; }
+    // Mod+Shift+Right { move-column-right; }
+    // Mod+Shift+Up    { move-window-up; }
+    // Mod+Shift+Down  { move-window-down; }
     Mod+Shift+H     { move-column-left; }
     Mod+Shift+J     { move-window-down-or-to-workspace-down; }
     Mod+Shift+K     { move-window-up-or-to-workspace-up; }
     Mod+Shift+L     { move-column-right; }
 
-    Mod+Shift+Home { move-column-to-first; }
-    Mod+Shift+End  { move-column-to-last; }
+    // Mod+Shift+Home { move-column-to-first; }
+    // Mod+Shift+End  { move-column-to-last; }
 
 
 
@@ -104,20 +114,20 @@ binds {
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
 
-    Mod+Shift+Page_Down { move-workspace-down; }
-    Mod+Shift+Page_Up   { move-workspace-up; }
+    // Mod+Shift+Page_Down { move-workspace-down; }
+    // Mod+Shift+Page_Up   { move-workspace-up; }
 
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+    // Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    // Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    // Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    // Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
-    Mod+WheelScrollRight { focus-column-right; }
-    Mod+WheelScrollLeft  { focus-column-left; }
+    // Mod+WheelScrollRight { focus-column-right; }
+    // Mod+WheelScrollLeft  { focus-column-left; }
 
     Mod+Print {spawn-sh "bash -c 'if pgrep -x wf-recorder > /dev/null; then killall -SIGINT wf-recorder; else wf-recorder --audio=alsa_output.pci-0000_00_1f.3.analog-stereo.monitor -f ~/Videos/recording_$(date +%H-%M-%S).mp4; fi' && notify-send Recording";}
-    Print { spawn-sh ". $HOME/.profile && rishot"; }
-    Ctrl+Print { screenshot-screen; }
+    Print { spawn-sh "noctalia msg screenshot-region"; }
+    Ctrl+Print { spawn-sh "noctalia msg screenshot-fullscreen"; }
     Alt+Print  { screenshot-window; }
 
 
@@ -126,8 +136,6 @@ binds {
     XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "noctalia msg mic-mute"; }
 
-    Mod+TouchpadScrollDown { spawn-sh "noctalia msg volume-up"; }
-    Mod+TouchpadScrollUp   { spawn-sh "noctalia msg volume-down"; }
 
     XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
@@ -139,8 +147,6 @@ binds {
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
 
     Ctrl+Mod+Space       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    Mod+Alt+N            allow-when-locked=true { spawn-sh "playerctl next"; }
-    Mod+Alt+P            allow-when-locked=true { spawn-sh "playerctl previous"; }
     Mod+Shift+M          allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     Mod+Shift+P          allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     Mod+Shift+N          allow-when-locked=true { spawn-sh "playerctl next"; }

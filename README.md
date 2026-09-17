@@ -59,6 +59,7 @@ A scrollable-tiling [Niri](https://niri.wm/) setup paired with the [Noctalia v5]
 ~/.config/niri/
 ├── config.kdl                      # Main entry point
 ├── noctalia.kdl                    # Carbon-blue accent theme for layout focus/border
+├── noctalia-full-config.toml       # Full Noctalia v5 config (plugins, bar, widgets, theme, shell)
 ├── config.d/
 │   ├── input-and-cursor.kdl        # Keyboard, touchpad, mouse, trackpoint, gestures, cursor theme
 │   ├── layout-and-overview.kdl     # Gaps, columns, shadows, overview, lid switch events
@@ -96,7 +97,9 @@ A saved "iOS glass" style setup: frosted blur + custom `liquid-glass` refraction
 
 ## Noctalia plugins in use
 
-### Installed plugins (`~/.config/noctalia/plugins.json`, source: `noctalia-dev/noctalia-plugins`)
+> **Outdated:** The plugins under `~/.config/noctalia/plugins/` (below) are **v4 legacy plugins** (Quickshell/QML-based). They are not v5 plugins. The actual v5 plugins are enabled in `~/.config/noctalia/config.toml` — see the next section.
+
+### v4 legacy plugins (leftover from Noctalia v4, installed in `~/.config/noctalia/plugins/`)
 
 | Plugin | Version | What it adds | Extra requirements |
 |---|---|---|---|
@@ -105,31 +108,58 @@ A saved "iOS glass" style setup: frosted blur + custom `liquid-glass` refraction
 | `keybind-cheatsheet` | 3.7.3 | Searchable keybind viewer that auto-detects Niri (see also `blackbartblues/keymap` below) | — |
 | `notes-scratchpad` | 1.1.6 | Quick scratchpad for throwaway notes | — |
 | `pomodoro` | 1.2.0 | Pomodoro timer (bar widget + panel + alarm sound) | — |
-| `screen-toolkit` | 1.3.3 | Color picker, annotate, record, pin, OCR, QR scan, palette, measure, webcam mirror (bound at `Mod+F2`) | `grim`, `slurp`, `hyprpicker`, `tesseract`, `ffmpeg`, `wl-screenrec`/`wf-recorder`, `translate-shell`, `imagemagick`, `zbar`, `curl`, `jq` |
+| `screen-toolkit` | 1.3.3 | Color picker, annotate, record, pin, OCR, QR scan, palette, measure, webcam mirror | `grim`, `slurp`, `hyprpicker`, `tesseract`, `ffmpeg`, `wl-screenrec`/`wf-recorder`, `translate-shell`, `imagemagick`, `zbar`, `curl`, `jq` |
 | `show-keys` | 1.0.2 | Real-time keypress OSD via `evtest` | `evtest` + read access to `/dev/input/event*` |
 | `tamagotchi` | 1.1.2 | Desktop Tamagotchi pet living on the taskbar | — |
 
-### Plugins referenced by keybinds (Noctalia v5 plugin store: `noctalia-dev/community-plugins` + official)
+### Noctalia v5 plugins (the actual ones — `~/.config/noctalia/config.toml` → `[plugins].enabled`)
 
-| Bind | Plugin ID | What it opens | Extra requirements |
+The v5 plugins are enabled declaratively in Noctalia's own config (a full copy is stored here as `noctalia-full-config.toml`). They come from three git sources:
+
+| Source | Location |
+|---|---|
+| `official` | https://github.com/noctalia-dev/official-plugins |
+| `community` | https://github.com/noctalia-dev/community-plugins |
+| `Custom_Plugins` | https://github.com/olafkfreund/nocatalia-v5-plugins/tree/main |
+
+| Plugin ID | What it does | Bind / widget | Extra requirements |
 |---|---|---|---|
-| `Mod+M` | `aabidk20/yt-music:panel` | YouTube Music client (panel + miniplayer) | `yt-dlp`, `mpv`, `mpv-mpris`, `jq`, `curl`, `nc` |
-| `Mod+G` | `shangshui0302/github-kanban:kanban` | GitHub dashboard (PRs, issues, notifications, heatmap) | `gh` authenticated, `xdg-open` |
-| `Mod+Shift+C` | `oldirtty/color_picker:panel` | Screen color picker panel | `hyprpicker` |
-| `Mod+Alt+C` | `yuuto/calculator:panel` | Calculator panel | — |
-| `Mod+Shift+W` | `ashur-d/wallpaper-widget:hub` | Wallpaper carousel/switcher | optional `magick`/`convert`/`ffmpeg` for thumbnails |
-| `` Mod+grave `` | `nightwatch75/todo:panel` | Prioritized to-do list | — |
-| `Mod+F3` | `noctalia/screen_recorder:service` | GPU screen recording + replay buffer | `gpu-screen-recorder` |
-| `Mod+Shift+Slash` | `blackbartblues/keymap:panel` | Searchable keymap cheatsheet/editor | `niri` CLI on `PATH` |
+| `noctalia/bongocat` | Bongo Cat bar widget that slaps to your typing/music | bar widgets `bongocat`, `cat`, `cat_2` | audio input + `/dev/input` access (uses `event3`) |
+| `noctalia/translator` | Translate text straight from the launcher (`/tr`) | — | network |
+| `noctalia/timer` | Countdown timer (bar widget, panel, desktop widget) | — | — |
+| `noctalia/kaomoji` | Browse/copy kaomoji emoticons from the launcher | — | — |
+| `nightwatch75/todo` | Prioritized to-do list panel | `Mod+grave` | — |
+| `dotnetrob/cat` | RunCat-style cat; speed tracks CPU usage | — | — |
+| `cleboost/zed-provider` | Recent Zed projects in the launcher (`/zed`) | `Mod+Z` | `zed` |
+| `icefish/phone-connect` | Control phones via KDE Connect (battery, ring, ping, share, clipboard, pairing) | commented `Mod+P` bind | KDE Connect daemon |
+| `alexander/screen-toolkit` | Screen tools: color picker, OCR, annotate, record, pin, measure, webcam mirror | `Mod+F2`, control-center shortcut | `grim`, `slurp`, `hyprpicker`, `tesseract`, `ffmpeg`, `wl-screenrec`/`wf-recorder`, `translate-shell`, `imagemagick`, `zbar`, `curl`, `jq` |
+| `blackbartblues/keymap` | Searchable keymap cheatsheet/editor (parses niri binds) | `Mod+Shift+Slash` | `niri` CLI on `PATH` |
+| `yuuto/arch-updater` | Check pacman/AUR/Flatpak updates, upgrade in terminal or background | — | Arch Linux (`yay`/`paru`, `flatpak`) |
+| `weinguyen/opencode-companion` | OpenCode AI agent chat panel, session management, MCP status | — | `opencode` |
+| `yuuto/calculator` | Calculator panel | `Mod+Alt+C` | — |
+| `kenn/keybind-cheatsheet` | Searchable keybind cheatsheet panel | — | `niri` CLI on `PATH` |
+| `h-jangra/keyviz` | Floating translucent keystroke HUD | — | evdev / `/dev/input` access |
+| `cleboost/hotspot` | Start/stop a Wi-Fi hotspot, view connected devices | — | `nmcli`, `iw`, `ip` |
+| `autumn/network-toolkit` | Unified network control panel (Wi-Fi, Bluetooth, Ethernet, hotspot, DNS) | bar widget `widget` | — |
+| `0lucasmatheus/awwwall` | Animated (GIF) wallpapers via awww | — | awww / Animated Wallpapers |
+| `noctalia/screen_recorder` | Hardware-accelerated recording + replay buffer | `Mod+F3`, `recorder` bar widgets | `gpu-screen-recorder` |
+| `liamwh/emoji-picker` | Raycast-inspired emoji & symbol picker | `Mod+Slash` (launcher `/emo`) | — |
+| `shangshui0302/github-kanban` | GitHub dashboard (PRs, issues, notifications, contributions heatmap) | `Mod+G` | `gh` authenticated via `gh auth login`, `xdg-open` |
+| `ashur-d/wallpaper-widget` | Cinematic wallpaper carousel/switcher | `Mod+Shift+W` | optional `magick`/`convert`/`ffmpeg` for cached thumbnails |
+| `imjustdoingmypart/niri-animations` | Pick niri animation presets from a panel | — | `niri` CLI + a dedicated animation include file |
+| `ramosdetrigo/godot-provider` | Recent Godot projects in the launcher (`/gd`) | — | Godot |
+| `aabidk20/yt-music` | YouTube Music client (full panel + miniplayer) | `Mod+M` | `yt-dlp`, `mpv`, `mpv-mpris`, `jq`, `curl`, `nc` |
+| `fel/agent-glow` | AI agent activity "glow" status with notifications | — | — |
+| `thaerob99/default-apps` | Default-apps manager | — | — |
 
-### Built-in Noctalia features driven by these binds
+### Built-in Noctalia features driven by the binds
 
-- **Launcher views** — `Mod+Space` (main), `Mod+Tab` (windows list `/win`), `Mod+Z` (Zed `/zed`), `Mod+Slash` (emoji `/emo`).
-- **Control center** — `Mod+S` (main), `Mod+N` (notifications), `Mod+Escape`-style panel toggles.
-- **Session** — `Mod+Shift+E` (session menu), `Mod+Alt+L` (lock screen), `XF86PowerOff` (session panel).
+- **Launcher views** — `Mod+Space` (main), `Mod+Tab` (windows list `/win`), `Mod+Z` (Zed `/zed` bundled with `cleboost/zed-provider`), `Mod+Slash` (emoji `/emo` via `liamwh/emoji-picker`).
+- **Control center** — `Mod+S` (main), `Mod+N` (notifications), plus shortcuts (Wi-Fi, Bluetooth, caffeine, notifications, power profile, screen-toolkit).
+- **Session** — `Mod+Shift+E` (session menu), `Mod+Alt+L` (lock screen), `XF86PowerOff` (session panel); idle → screen-off → lock → lock-and-suspend.
 - **Media/volume/brightness OSDs** — via `noctalia msg volume-*`, `brightness-*`, etc.
 - **Screenshots** — `Print` region, `Ctrl+Print` fullscreen, `Alt+Print` window (via `noctalia msg screenshot-*`).
-- **Desktop widgets** — `Mod+F1` enters edit mode; `Mod+Shift+U` sets a random wallpaper.
+- **Desktop widgets** — `Mod+F1` enters edit mode; `Mod+Shift+U` sets a random wallpaper; `Mod+Shift+W` switches wallpapers via the wallpaper-widget carousel.
 
 ---
 

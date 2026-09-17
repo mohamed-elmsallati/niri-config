@@ -97,7 +97,7 @@ A saved "iOS glass" style setup: frosted blur + custom `liquid-glass` refraction
 
 ## Noctalia plugins in use
 
-### Noctalia v5 plugins (the actual ones — `~/.config/noctalia/config.toml` → `[plugins].enabled`)
+### Noctalia v5 plugins 
 
 The v5 plugins are enabled declaratively in Noctalia's own config (a full copy is stored here as `noctalia-full-config.toml`). They come from two git sources:
 

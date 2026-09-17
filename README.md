@@ -97,30 +97,14 @@ A saved "iOS glass" style setup: frosted blur + custom `liquid-glass` refraction
 
 ## Noctalia plugins in use
 
-> **Outdated:** The plugins under `~/.config/noctalia/plugins/` (below) are **v4 legacy plugins** (Quickshell/QML-based). They are not v5 plugins. The actual v5 plugins are enabled in `~/.config/noctalia/config.toml` — see the next section.
-
-### v4 legacy plugins (leftover from Noctalia v4, installed in `~/.config/noctalia/plugins/`)
-
-| Plugin | Version | What it adds | Extra requirements |
-|---|---|---|---|
-| `kde-connect` | 1.2.1 | Mobile device integration (Phone Display, sync, file browsing) from bar/control center | `kdeconnectd` running; `sshfs` + `libfuse` for file browsing |
-| `keep-awake-plus` | 0.3.0 | Session keep-awake with partial/full inhibit modes + persistent last choice | — |
-| `keybind-cheatsheet` | 3.7.3 | Searchable keybind viewer that auto-detects Niri (see also `blackbartblues/keymap` below) | — |
-| `notes-scratchpad` | 1.1.6 | Quick scratchpad for throwaway notes | — |
-| `pomodoro` | 1.2.0 | Pomodoro timer (bar widget + panel + alarm sound) | — |
-| `screen-toolkit` | 1.3.3 | Color picker, annotate, record, pin, OCR, QR scan, palette, measure, webcam mirror | `grim`, `slurp`, `hyprpicker`, `tesseract`, `ffmpeg`, `wl-screenrec`/`wf-recorder`, `translate-shell`, `imagemagick`, `zbar`, `curl`, `jq` |
-| `show-keys` | 1.0.2 | Real-time keypress OSD via `evtest` | `evtest` + read access to `/dev/input/event*` |
-| `tamagotchi` | 1.1.2 | Desktop Tamagotchi pet living on the taskbar | — |
-
 ### Noctalia v5 plugins (the actual ones — `~/.config/noctalia/config.toml` → `[plugins].enabled`)
 
-The v5 plugins are enabled declaratively in Noctalia's own config (a full copy is stored here as `noctalia-full-config.toml`). They come from three git sources:
+The v5 plugins are enabled declaratively in Noctalia's own config (a full copy is stored here as `noctalia-full-config.toml`). They come from two git sources:
 
 | Source | Location |
 |---|---|
 | `official` | https://github.com/noctalia-dev/official-plugins |
 | `community` | https://github.com/noctalia-dev/community-plugins |
-| `Custom_Plugins` | https://github.com/olafkfreund/nocatalia-v5-plugins/tree/main |
 
 | Plugin ID | What it does | Bind / widget | Extra requirements |
 |---|---|---|---|

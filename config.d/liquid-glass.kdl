@@ -1,4 +1,6 @@
 
+// OLD Setup for liquid-glass using https://github.com/zaroutt/Niri-glass
+
 window-rule {
     opacity 0.75          // iOS glass reads as frosted, not see-through — 0.5 is too ghostly
     geometry-corner-radius 24   // Apple leans into big, soft, continuous corners

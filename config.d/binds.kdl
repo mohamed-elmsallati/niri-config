@@ -1,40 +1,39 @@
 binds {
 
-    // Mod+F7 hotkey-overlay-title="Switch between V4 and V5" { spawn-sh "pkill noctalia && qs -c noctalia-shell || pkill qs && noctalia";}
-
     Mod+O hotkey-overlay-title="Overview" repeat=false { toggle-overview; }
-    Mod+Space hotkey-overlay-title="Launcher" { spawn-sh "noctalia msg panel-toggle launcher 2>/dev/null || qs -c noctalia-shell ipc call launcher toggle"; }
-    Mod+Comma hotkey-overlay-title="Settings" { spawn-sh "noctalia msg settings-toggle 2>/dev/null || qs -c noctalia-shell ipc call settings toggle"; }
-    Mod+Shift+E hotkey-overlay-title="Session Menu" { spawn-sh "noctalia msg panel-toggle session 2>/dev/null || qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+Space hotkey-overlay-title="Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Comma hotkey-overlay-title="Settings" { spawn-sh "noctalia msg settings-toggle"; }
+    Mod+Shift+E hotkey-overlay-title="Session Menu" { spawn-sh "noctalia msg panel-toggle session"; }
 
-    Mod+S hotkey-overlay-title="Control Center" { spawn-sh "noctalia msg panel-toggle control-center 2>/dev/null || qs -c noctalia-shell ipc call controlCenter toggle"; }
+    Mod+S hotkey-overlay-title="Control Center" { spawn-sh "noctalia msg panel-toggle control-center"; }
 
-    Mod+Tab { spawn-sh "noctalia msg panel-toggle launcher /win";}
-    Mod+Z { spawn-sh "noctalia msg panel-toggle launcher /zed";}
-    Mod+G { spawn-sh "noctalia msg panel-toggle launcher /gd";}
-    Mod+M { spawn-sh "noctalia msg panel-toggle aabidk20/yt-music:panel";}
-    Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn-sh "noctalia msg session lock 2>/dev/null || qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+Tab hotkey-overlay-title="Windows List" { spawn-sh "noctalia msg panel-toggle launcher /win";}
+    Mod+Z hotkey-overlay-title="Zed Projects" { spawn-sh "noctalia msg panel-toggle launcher /zed";}
+    // Mod+G { spawn-sh "noctalia msg panel-toggle launcher /gd";}
+    Mod+M hotkey-overlay-title="YT-Music Panel" { spawn-sh "noctalia msg panel-toggle aabidk20/yt-music:panel";}
+    Mod+G hotkey-overlay-title="Github Dashboard" { spawn-sh "noctalia msg panel-toggle shangshui0302/github-kanban:kanban";}
+    Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn-sh "noctalia msg session lock"; }
 
-    Mod+V hotkey-overlay-title="Clipboard" { spawn-sh "noctalia msg panel-toggle clipboard 2>/dev/null || qs -c noctalia-shell ipc call launcher clipboard"; }
-    Mod+N hotkey-overlay-title="Notifications" { spawn-sh "noctalia msg panel-toggle control-center notifications 2>/dev/null || qs -c noctalia-shell ipc call notifications toggleHistory"; }
-    // Mod+M hotkey-overlay-title="Media" { spawn-sh "noctalia msg panel-toggle control-center media 2>/dev/null || qs -c noctalia-shell ipc call media toggle"; }
-    Mod+Slash hotkey-overlay-title="Emoji" { spawn-sh "noctalia msg panel-toggle launcher /emo  2>/dev/null || qs -c noctalia-shell ipc call launcher emoji";}
-    Mod+Shift+U hotkey-overlay-title="Random Wallpaper" { spawn-sh "noctalia msg wallpaper-random 2>/dev/null || qs -c noctalia-shell ipc call wallpaper random"; }
-    Mod+Shift+C hotkey-overlay-title="Color picker" { spawn-sh "noctalia msg panel-toggle oldirtty/color_picker:panel 2>/dev/null || qs -c noctalia-shell ipc call launcher clipboard"; }
-    Mod+Alt+C hotkey-overlay-title="Calculator" { spawn-sh "noctalia msg panel-toggle yuuto/calculator:panel 2>/dev/null || qs -c noctalia-shell ipc call launcher clipboard"; }
-    Mod+Shift+W hotkey-overlay-title="Change Wallpaper" { spawn-sh "noctalia msg panel-toggle wallpaper 2>/dev/null || qs -c noctalia-shell ipc call wallpaper toggle"; }
+    Mod+V hotkey-overlay-title="Clipboard" { spawn-sh "noctalia msg panel-toggle clipboard"; }
+    Mod+N hotkey-overlay-title="Notifications" { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
+    // Mod+M hotkey-overlay-title="Media" { spawn-sh "noctalia msg panel-toggle control-center media"; }
+    Mod+Slash hotkey-overlay-title="Emoji" { spawn-sh "noctalia msg panel-toggle launcher /emo";}
+    Mod+Shift+U hotkey-overlay-title="Random Wallpaper" { spawn-sh "noctalia msg wallpaper-random"; }
+    Mod+Shift+C hotkey-overlay-title="Color picker" { spawn-sh "noctalia msg panel-toggle oldirtty/color_picker:panel"; }
+    Mod+Alt+C hotkey-overlay-title="Calculator" { spawn-sh "noctalia msg panel-toggle yuuto/calculator:panel"; }
+    Mod+Shift+W hotkey-overlay-title="Change Wallpaper" { spawn-sh "noctalia msg panel-toggle ashur-d/wallpaper-widget:hub"; }
 
     Mod+grave hotkey-overlay-title="Todo" { spawn-sh "noctalia msg panel-toggle nightwatch75/todo:panel "; }
     // Mod+Print hotkey-overlay-title="Record The Screen" { spawn-sh "noctalia msg panel-toggle noctalia/screenrecoreder:panel "; }
 
     // ---------------------------------------------------------
-    // v4-Exclusive Binds (No v5 equivalents provided)
+    // Plugin binds (v5)
     // ---------------------------------------------------------
-    Mod+F1 { spawn-sh "noctalia msg desktop-widgets-edit"; }
-    Mod+F2 { spawn-sh "noctalia msg plugin alexander/screen-toolkit:service all toggle"; }
-    Mod+F3 { spawn-sh "noctalia msg plugin noctalia/screenrecorder start"; }
+    Mod+F1 hotkey-overlay-title="Edit Desktop Widgets" { spawn-sh "noctalia msg desktop-widgets-edit"; }
+    Mod+F2 hotkey-overlay-title="Screen-Toolkit" { spawn-sh "noctalia msg plugin alexander/screen-toolkit:service all toggle"; }
+    Mod+F3 hotkey-overlay-title="Screen Recording" { spawn-sh "noctalia msg plugin noctalia/screen_recorder:service all toggle"; }
 
-    Mod+P { spawn-sh "noctalia msg panel-toggle icefish/phone-connect:details";}
+    // Mod+P { spawn-sh "noctalia msg panel-toggle icefish/phone-connect:details";}
     // Mod+F5 { spawn-sh "kitty --class Keyboard -e ~/go/bin/ditto"; }
     Mod+Shift+Slash hotkey-overlay-title="Cheatsheet" { spawn-sh "noctalia msg panel-toggle blackbartblues/keymap:panel";}
 

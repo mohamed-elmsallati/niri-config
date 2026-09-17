@@ -1,7 +1,7 @@
 window-rule {
     background-effect {
         xray false
-        blur true
+        blur false
 
     }
 
@@ -12,10 +12,14 @@ window-rule {
     border {
         on
         width 1
+        active-color   "#363636"
+        inactive-color "#262626"
+        urgent-color   "#ee5396"
     }
 
     shadow {
-        off
+        // off
+        // on
         softness 0
         spread 0
         offset x=0 y=10
@@ -25,10 +29,11 @@ window-rule {
     }
 
     focus-ring{
+        // on
         off
     }
 
-    opacity 0.8
+    opacity 1.0
     draw-border-with-background false
     geometry-corner-radius 0
     clip-to-geometry true
@@ -42,7 +47,6 @@ window-rule {
   border {
       off
   }
-  default-floating-position x=400 y=-3 relative-to="top-right"
   default-column-width { fixed 1080; }
   default-window-height { fixed 920; }
 }
@@ -165,7 +169,7 @@ window-rule {
 }
 
 blur {
-    // off
+    off
     passes 2
     offset 6
     saturation 2.5

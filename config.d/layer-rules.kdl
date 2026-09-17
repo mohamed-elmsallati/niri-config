@@ -27,8 +27,8 @@ layer-rule {
   match namespace="waybar"
 
     shadow {
-        on
-        // off
+        // on
+        off
         softness 0
         spread 0
         offset x=7 y=6
